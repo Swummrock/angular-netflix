@@ -13,29 +13,29 @@
         novalidate
       >
         <div class="form-group">
-          <label for="lastname">Lastname</label>
+          <label for="firstname">Firstname</label>
           <input
             type="text"
             class="form-control"
-            name="lastname"
-            [(ngModel)]="user.lastname"
+            name="firstname"
+            [(ngModel)]="user.firstname"
             required
             minlength="3"
             maxlength="20"
-            #lastname="ngModel"
+            #firstname="ngModel"
           />
-          <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
-            <div *ngIf="lastname.errors['required']">Lastname is required</div>
-            <div *ngIf="lastname.errors['minlength']">
-              Lastname must be at least 3 characters
+          <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
+            <div *ngIf="firstname.errors['required']">Firstname is required</div>
+            <div *ngIf="firstname.errors['minlength']">
+              Firstname must be at least 3 characters
             </div>
-            <div *ngIf="lastname.errors['maxlength']">
-              Lastname must be at most 20 characters
+            <div *ngIf="firstname.errors['maxlength']">
+              Firstname must be at most 20 characters
             </div>
           </div>
         </div>
         <div class="form-group">
-            <label for="lastname">Lastname</label>
+            <label for="firstname">Lastname</label>
             <input
               type="text"
               class="form-control"
