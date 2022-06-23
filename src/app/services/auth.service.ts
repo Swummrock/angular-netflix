@@ -12,6 +12,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(user: User) {
-    this.http.post<{ token: string }>(this.url, user);
+    return this.http.post<{ token: string }>(this.url, user);
   }
 }
