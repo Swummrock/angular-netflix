@@ -1,8 +1,10 @@
-<h2>Movies List</h2>
+<h2>Movies Original</h2>
 
-<tr *ngFor="let movie of movies">
-    <td> {{ movie.title }}</td>
-    <td> {{ movie.image }}</td>
-    <td> {{ movie.type }}</td>
-    <td> {{ movie.year }}</td>
-</tr>
+<div class="card mb-3" *ngFor="let movie of movies">
+    <h3 class="card-title">{{ movie.title }}</h3>
+    <img class="card-img-top" src="{{ movie.image }} " alt="{{ movie.title }}">
+    <div class="card-body"> 
+      <p class="card-text">{{ movie.type}}</p>
+      <p class="card-text"><small class="text-muted">{{ movie.year }}</small></p>
+    </div>
+  </div>
