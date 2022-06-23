@@ -11,6 +11,7 @@ import { LogComponent } from './components/log/log.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthInterceptor } from './services/auth/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthInterceptor } from './services/auth/auth.interceptor';
     HomeComponent,
     LogComponent,
     MoviesListComponent,
-    AuthComponent
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../interfaces/user';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +16,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(user: User) {
-    return this.http.post<{ token: string }>(this.url, user);
+    return this.http.post<{ token: string }>(this.url, user, httpOptions);
+  }
+
+  register(user: User) {
+    return this.http.post<{ token: string }>(this.url, user, httpOptions);
   }
 }
