@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LogComponent } from './components/log/log.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { AuthInterceptor } from './services/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,17 @@ import { AuthComponent } from './components/auth/auth.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

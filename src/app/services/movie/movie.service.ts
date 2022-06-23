@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie } from '../interfaces/movie';
+import { Movie } from '../../interfaces/movie';
 
 @Injectable({
   providedIn: 'root'
