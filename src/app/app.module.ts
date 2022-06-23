@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LogComponent } from './components/log/log.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LogComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
