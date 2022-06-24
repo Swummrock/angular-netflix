@@ -1,6 +1,6 @@
 <h2>Movies Original</h2>
-
-<div class="card mb-3" *ngFor="let movie of movies">
+<div class="container">
+  <div class="card mb-3" *ngFor="let movie of movies">
     <h3 class="card-title">{{ movie.title }}</h3>
     <img class="card-img-top" src="{{ movie.image }} " alt="{{ movie.title }}">
     <div class="card-body"> 
@@ -9,3 +9,5 @@
       <i class="fas fa-heart"></i>
     </div>
   </div>
+</div>
+
