@@ -1,29 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { TokenStorageService } from 'src/app/services/auth/token.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   isLoggedIn = false;
   user: User = {};
+  token : string | null = localStorage.getItem('token');
 
-  constructor(private auth: AuthService,) { }
+  constructor(
+    private tokenAuth: TokenStorageService,
+    ) { }
 
-  // ngOnInit(user: User){
-  //   // this.isLoggedIn = !!localStorage.getItem();
-
-  //   if (this.isLoggedIn) {
-  //     // const user = this.tokenStorageService.getUser();
-  //     return user.email;
-  //   }
-  // }
+  ngOnInit(){
+    if (this.token) {
+      this.isLoggedIn = true;
+    };
+  }
 
   logOut(): void {
-    this.auth.signOut();
+    this.tokenAuth.signOut();
+    this.isLoggedIn = false;
     window.location.reload();
   }
 }
