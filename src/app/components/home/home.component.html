@@ -1,29 +1,29 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Netflix</a>
+    <a routerLink="#" class="navbar-brand">Netflix</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+        <a routerLink="/home" class="nav-link">Home </a>
       </li>
       <li class="nav-item">
-        <a href="/movies" class="nav-link" *ngIf="isLoggedIn" routerLink="movies">Movies</a>
+        <a routerLink="/movies" class="nav-link" *ngIf="isLoggedIn">Movies</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        <a routerLink="/register" class="nav-link">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a href="/log" class="nav-link" routerLink="log">Login</a>
+        <a routerLink="/log" class="nav-link">Login</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/favorite" class="nav-link" routerLink="favorite">Favorite</a>
+        <a routerLink="/favorite" class="nav-link">Favorite</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logOut()">LogOut</a>
+        <a routerLink class="nav-link" (click)="logOut()">LogOut</a>
       </li>
     </ul>
   </nav>
