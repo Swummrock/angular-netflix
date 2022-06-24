@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 import { HomeComponent } from './components/home/home.component';
 import { LogComponent } from './components/log/log.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'log', component: LogComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] },  
+  { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] }, 
+  { path: 'movies', component: FavoriteComponent, canActivate: [AuthGuard] },  
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

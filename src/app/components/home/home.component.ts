@@ -22,7 +22,7 @@ export class HomeComponent {
   //   }
   // }
 
-  logout(): void {
+  logOut(): void {
     this.auth.signOut();
     window.location.reload();
   }
