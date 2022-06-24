@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
-import { TokenStorageService } from 'src/app/services/auth/token.service';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.css']
 })
-export class LogComponent implements OnInit {
+export class LogComponent {
   user: User = {};
   isLoggedIn = false;
   isLoginFailed = false;
@@ -18,14 +17,7 @@ export class LogComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private tokenStorage: TokenStorageService
   ) { }
-
-  ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-    }
-  }
 
   log() {
     this.auth.login(this.user).subscribe({

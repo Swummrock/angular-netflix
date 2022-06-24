@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
-import { TokenStorageService } from '../../services/auth/token.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +11,19 @@ export class HomeComponent {
   isLoggedIn = false;
   user: User = {};
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private auth: AuthService,) { }
 
-  ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+  // ngOnInit(user: User){
+  //   // this.isLoggedIn = !!localStorage.getItem();
 
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.user = user.email;
-    }
-  }
+  //   if (this.isLoggedIn) {
+  //     // const user = this.tokenStorageService.getUser();
+  //     return user.email;
+  //   }
+  // }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.auth.signOut();
     window.location.reload();
   }
 }

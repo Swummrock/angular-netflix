@@ -22,4 +22,8 @@ export class AuthService {
   register(user: User) {
     return this.http.post<{ token: string }>(this.url, user, httpOptions);
   }
+
+  signOut(): void {
+    window.sessionStorage.clear();
+  }
 }
