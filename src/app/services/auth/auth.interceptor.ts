@@ -15,10 +15,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (request.url !== "http://localhost:8000/authentication_token") {
-      let jeton = localStorage.getItem('jeton');
+      let token = localStorage.getItem('token');
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${jeton}`
+          Authorization: `Bearer ${token}`
         }
       })
     }
