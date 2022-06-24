@@ -13,10 +13,10 @@ export class RegisterComponent {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private auth: AuthService) { }
 
   onSubmit(): void {
-    this.authService.register(this.user).subscribe({
+    this.auth.register(this.user).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;

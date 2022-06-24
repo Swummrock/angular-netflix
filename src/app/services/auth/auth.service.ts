@@ -11,16 +11,17 @@ const httpOptions = {
 })
 export class AuthService {
   
-  private url: string = "http://localhost:8000/authentication_token";
+  private urlToken: string = "http://localhost:8000/authentication_token";
+  private urlRegister: string = "http://localhost:8000/api/users";
 
   constructor(private http: HttpClient) { }
 
   login(user: User) {
-    return this.http.post<{ token: string }>(this.url, user, httpOptions);
+    return this.http.post<{ token: string }>(this.urlToken, user, httpOptions);
   }
 
   register(user: User) {
-    return this.http.post<{ token: string }>(this.url, user, httpOptions);
+    return this.http.post<{ token: string }>(this.urlRegister, user, httpOptions);
   }
 
   signOut(): void {
