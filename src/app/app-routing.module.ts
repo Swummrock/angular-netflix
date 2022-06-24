@@ -8,9 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'log', component: LogComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'log', component: LogComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] }, 
   { path: 'favorite', component: FavoriteComponent, canActivate: [AuthGuard] },  
   { path: '', redirectTo: 'home', pathMatch: 'full' }

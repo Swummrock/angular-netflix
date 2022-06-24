@@ -11,8 +11,8 @@ export class RegisterComponent {
   user: User = {};
   isSuccessful = false;
   isSignUpFailed = false;
-  errorMessage = '';
-
+  errorMessage: string | null = null;
+  
   constructor(private auth: AuthService) { }
 
   onSubmit(): void {
