@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LogComponent } from './components/log/log.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
-import { AuthComponent } from './components/auth/auth.component';
 import { AuthInterceptor } from './services/auth/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -19,7 +18,6 @@ import { RegisterComponent } from './components/register/register.component';
     HomeComponent,
     LogComponent,
     MoviesListComponent,
-    AuthComponent,
     RegisterComponent
   ],
   imports: [
