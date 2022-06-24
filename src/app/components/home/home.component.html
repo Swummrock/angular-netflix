@@ -1,4 +1,4 @@
-<nav class="navbar navbar navbar-dark bg-dark">
+<!-- <nav class="navbar navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Movies</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,4 +22,39 @@
       </form>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> -->
+
+  <div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Netflix</a>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home">Home </a>
+        </li>
+        <li class="nav-item">
+          <a href="/movies" class="nav-link" *ngIf="isLoggedIn" routerLink="movies">Movies</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="/log" class="nav-link" routerLink="log">Login</a>
+        </li>
+      </ul>
+  
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <!-- <li class="nav-item">
+          <a href="/top" class="nav-link" routerLink="top">{{ top }}</a>
+        </li> -->
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="container">
+      <!-- <router-outlet></router-outlet> -->
+    </div>
+  </div>
