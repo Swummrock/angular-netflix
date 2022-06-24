@@ -8,44 +8,26 @@
       <form
         *ngIf="!isLoggedIn"
         name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
+        (ngSubmit)="f.form.valid && log()"
         #f="ngForm"
         novalidate
       >
         <div class="form-group">
-          <label for="firstname">Firstname</label>
-          <input
-            type="text"
-            class="form-control"
-            name="firstname"
-            [(ngModel)]="user.firstname"
-            required
-            #firstname="ngModel"
-          />
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="firstname.errors && f.submitted"
-          >
-            Firstname is required!
-          </div>
-        </div>
-        <div class="form-group">
-            <label for="lastname">Lastname</label>
+            <label for="email">Email</label>
             <input
               type="text"
               class="form-control"
-              name="lastname"
-              [(ngModel)]="user.lastname"
+              name="email"
+              [(ngModel)]="user.email"
               required
-              #lastname="ngModel"
+              #email="ngModel"
             />
             <div
               class="alert alert-danger"
               role="alert"
-              *ngIf="lastname.errors && f.submitted"
+              *ngIf="email.errors && f.submitted"
             >
-              Lastname is required!
+              Email is required!
             </div>
           </div>
         <div class="form-group">
@@ -87,7 +69,7 @@
       </form>
   
       <div class="alert alert-success" *ngIf="isLoggedIn">
-        You are logged in :).
+        You are logged in {{ user.firstname }} :).
       </div>
     </div>
   </div>

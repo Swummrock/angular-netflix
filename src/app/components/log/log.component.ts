@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { TokenStorageService } from 'src/app/services/auth/token.service';
 import { AuthService } from '../../services/auth/auth.service';
@@ -12,9 +13,13 @@ export class LogComponent implements OnInit {
   user: User = {};
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
+  errorMessage: string | null = null;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private tokenStorage: TokenStorageService
+  ) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -22,22 +27,21 @@ export class LogComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    this.authService.login(this.user).subscribe({
-      next: data => {
-        // this.tokenStorage.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.reloadPage();
+  log() {
+    this.auth.login(this.user).subscribe({
+      next: res => {
+        if (res.token != null) {
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          localStorage.setItem('token', res.token);
+          this.router.navigateByUrl('/movies');
+
+        }
       },
-      error: err => {
-        this.errorMessage = err.error.message;
+      error: res => {
+        this.errorMessage = res.message
         this.isLoginFailed = true;
       }
     });
-  }
-
-  reloadPage(): void {
-    window.location.reload();
   }
 }
